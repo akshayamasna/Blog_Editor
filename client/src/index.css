@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 240 10% 3.9%; /* #0f172a */
+  --foreground: 0 0% 98%; /* #fafafa */
+  --muted: 240 3.7% 15.9%; /* #1e293b */
+  --muted-foreground: 240 5% 64.9%; /* #64748b */
+  --popover: 240 10% 3.9%; /* #0f172a */
+  --popover-foreground: 0 0% 98%; /* #fafafa */
+  --card: 240 10% 3.9%; /* #0f172a */
+  --card-foreground: 0 0% 98%; /* #fafafa */
+  --border: 240 3.7% 15.9%; /* #1e293b */
+  --input: 240 3.7% 15.9%; /* #1e293b */
+  --primary: 221 83% 53%; /* #3b82f6 */
+  --primary-foreground: 210 40% 98%; /* #eff6ff */
+  --secondary: 240 3.7% 15.9%; /* #1e293b */
+  --secondary-foreground: 0 0% 98%; /* #fafafa */
+  --accent: 240 3.7% 15.9%; /* #1e293b */
+  --accent-foreground: 0 0% 98%; /* #fafafa */
+  --destructive: 0 84.2% 60.2%; /* #ef4444 */
+  --destructive-foreground: 0 0% 98%; /* #fafafa */
+  --ring: 221 83% 53%; /* #3b82f6 */
+  --radius: 0.75rem;
+  --chart-1: 173 58% 39%; /* #10b981 */
+  --chart-2: 43 74% 66%; /* #f59e0b */
+  --chart-3: 197 37% 24%; /* #334155 */
+  --chart-4: 43 74% 66%; /* #f59e0b */
+  --chart-5: 27 87% 67%; /* #ef4444 */
+}
+
+.dark {
+  --background: 240 10% 3.9%; /* #0f172a */
+  --foreground: 0 0% 98%; /* #fafafa */
+  --muted: 240 3.7% 15.9%; /* #1e293b */
+  --muted-foreground: 240 5% 64.9%; /* #64748b */
+  --popover: 240 10% 3.9%; /* #0f172a */
+  --popover-foreground: 0 0% 98%; /* #fafafa */
+  --card: 240 10% 3.9%; /* #0f172a */
+  --card-foreground: 0 0% 98%; /* #fafafa */
+  --border: 240 3.7% 15.9%; /* #1e293b */
+  --input: 240 3.7% 15.9%; /* #1e293b */
+  --primary: 221 83% 53%; /* #3b82f6 */
+  --primary-foreground: 210 40% 98%; /* #eff6ff */
+  --secondary: 240 3.7% 15.9%; /* #1e293b */
+  --secondary-foreground: 0 0% 98%; /* #fafafa */
+  --accent: 240 3.7% 15.9%; /* #1e293b */
+  --accent-foreground: 0 0% 98%; /* #fafafa */
+  --destructive: 0 84.2% 60.2%; /* #ef4444 */
+  --destructive-foreground: 0 0% 98%; /* #fafafa */
+  --ring: 221 83% 53%; /* #3b82f6 */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    @apply dark;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(15, 23, 42, 0.8);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  .editor-content {
+    min-height: 400px;
+  }
+
+  .auto-save-indicator {
+    transition: all 0.3s ease;
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(20px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { 
+    opacity: 0.6; 
+  }
+  50% { 
+    opacity: 1; 
+  }
+}
+
+/* Rich text editor styles */
+.editor-toolbar {
+  @apply flex items-center space-x-1 p-3 bg-muted rounded-lg border border-border;
+}
+
+.editor-toolbar button {
+  @apply p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded transition-all duration-150;
+}
+
+.editor-toolbar button.active {
+  @apply bg-primary text-primary-foreground;
+}
+
+/* Tag input styles */
+.tag-item {
+  @apply inline-flex items-center bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.tag-item button {
+  @apply ml-2 text-primary/70 hover:text-primary;
+}
